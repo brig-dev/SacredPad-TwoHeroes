@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="SacredPad/SacredPad.vcxproj" Id="72a656e1-af99-48f3-8839-347f44e17721" />
+</Solution>

@@ -1,0 +1,46 @@
+# Builds version.dll on GitHub (Windows, MSVC, 32 bit) at every push and pull request.
+# The DLL can be downloaded from the Actions tab: the latest run > Artifacts.
+name: Build
+
+on:
+  push:
+    paths: [ 'SacredPad/**', 'SacredPad.slnx', '.github/workflows/build.yml' ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  dll:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: microsoft/setup-msbuild@v2
+        with:
+          msbuild-architecture: x86
+
+      - name: Build Release x86
+        shell: pwsh
+        run: >
+          msbuild SacredPad\SacredPad.vcxproj /m /v:m
+          /p:Configuration=Release /p:Platform=Win32 /p:PlatformToolset=v143
+          "/p:OutDir=$env:GITHUB_WORKSPACE\out\\"
+
+      - name: Version inside the DLL
+        id: ver
+        shell: pwsh
+        run: |
+          $h = Get-Content SacredPad\SacredPad.h -Raw
+          if ($h -notmatch '#define SACREDPAD_VERSION "([0-9.]+)') { throw "SACREDPAD_VERSION not found" }
+          $v = $Matches[1]
+          $dll = [Text.Encoding]::ASCII.GetString([IO.File]::ReadAllBytes("out\version.dll"))
+          if (-not $dll.Contains($v)) { throw "the DLL does not contain version $v" }
+          "Version $v, $((Get-Item out\version.dll).Length) bytes" | Write-Host
+          "v=$v" >> $env:GITHUB_OUTPUT
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SacredPad-${{ steps.ver.outputs.v }}
+          path: |
+            out/version.dll
+            SacredPad/SacredPad.ini
+          retention-days: 30
