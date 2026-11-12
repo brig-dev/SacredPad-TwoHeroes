@@ -1,6 +1,16 @@
+<p align="center"><img src="docs/img/logo.png" width="320" alt="SacredPad: Two Heroes"></p>
+
 # SacredPad: Two Heroes
 
 **Couch co-op and a complete controller overhaul for Sacred Gold.**
+
+<table align="center">
+  <tr>
+    <td align="center" width="200"><img src="docs/img/icon_two_heroes.png" height="64" alt=""><br><b>Two heroes</b><br>on one screen, with two controllers</td>
+    <td align="center" width="200"><img src="docs/img/icon_controller.png" height="64" alt=""><br><b>The whole game on the pad</b><br>fights, inventory, shops, menus</td>
+    <td align="center" width="200"><img src="docs/img/icon_shared.png" height="64" alt=""><br><b>Shared adventure</b><br>two inventories, loot, quest rewards</td>
+  </tr>
+</table>
 
 Play Sacred Gold with a controller, alone or with a friend on the same PC: two heroes, two pads, one screen.
 Made for the couch, the Steam Deck and the Steam Machine.
@@ -113,6 +123,8 @@ Hero 2's progress is saved in their own hero file whenever you save; a backup of
 ## Known issues
 
 - Only the executable described above enables the full mod (see Requirements).
+- Do not use it together with other controller mods for Sacred (for example sacred-pad or Controller Mode): two mods
+  driving the same controller get in each other's way.
 - The blacksmith serves one player at a time.
 - Quests are written for one hero: rewards for hero 2 are added by the mod, but a quest could still behave oddly.
 - Attacks of player 2 may sometimes be cut short when both players attack the same enemy.
@@ -134,7 +146,8 @@ comments on Nexus Mods.
 ## Credits
 
 - Made by **brig-dev**, with the help of Claude (Anthropic), which did most of the analysis of the game and wrote most
-  of the code under brig-dev's direction and testing.
+  of the code under brig-dev's direction and testing. The logo and the icons of this page were made with AI image
+  tools; they contain nothing of the game.
 - pureHD by Vitaly (William) Tokarev; Sacred Oro HD ITA by campi6277; dgVoodoo 2 by Dege; IndirectSound. SacredPad
   contains none of their files.
 - Sacred is a game by Ascaron Entertainment; the rights belong to THQ Nordic / Deep Silver. SacredPad is an unofficial
