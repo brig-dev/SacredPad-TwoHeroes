@@ -1,0 +1,22 @@
+; version.def - esportazioni del proxy di version.dll (SacredPad, fase 1 passo 1)
+; Ogni nome esportato punta a uno "stub" che salta alla funzione vera
+; della version.dll di sistema. I 17 nomi sono quelli della version.dll di Windows.
+LIBRARY version
+EXPORTS
+    GetFileVersionInfoA         = Proxy_GetFileVersionInfoA
+    GetFileVersionInfoByHandle  = Proxy_GetFileVersionInfoByHandle
+    GetFileVersionInfoExA       = Proxy_GetFileVersionInfoExA
+    GetFileVersionInfoExW       = Proxy_GetFileVersionInfoExW
+    GetFileVersionInfoSizeA     = Proxy_GetFileVersionInfoSizeA
+    GetFileVersionInfoSizeExA   = Proxy_GetFileVersionInfoSizeExA
+    GetFileVersionInfoSizeExW   = Proxy_GetFileVersionInfoSizeExW
+    GetFileVersionInfoSizeW     = Proxy_GetFileVersionInfoSizeW
+    GetFileVersionInfoW         = Proxy_GetFileVersionInfoW
+    VerFindFileA                = Proxy_VerFindFileA
+    VerFindFileW                = Proxy_VerFindFileW
+    VerInstallFileA             = Proxy_VerInstallFileA
+    VerInstallFileW             = Proxy_VerInstallFileW
+    VerLanguageNameA            = Proxy_VerLanguageNameA
+    VerLanguageNameW            = Proxy_VerLanguageNameW
+    VerQueryValueA              = Proxy_VerQueryValueA
+    VerQueryValueW              = Proxy_VerQueryValueW
